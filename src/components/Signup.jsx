@@ -1,6 +1,6 @@
 export default function Signup() {
   function handleSubmit(formData) {
-    e.preventDefault();
+    const enteredEmail = formData.get('email');
   }
   return (
     <form action={handleSubmit}>
