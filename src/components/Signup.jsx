@@ -1,5 +1,11 @@
-import { useActionState } from 'react'; 
-import { isEmail, isNotEmpty, hasMinLength, isEqualToOtherValue } from '../util/validation';
+import { useActionState } from 'react';
+import {
+  isEmail,
+  isNotEmpty,
+  hasMinLength,
+  isEqualToOtherValue,
+} from '../util/validation';
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
   function signupAction(formData) {
@@ -15,11 +21,11 @@ export default function Signup() {
     let errors = [];
 
     if (!isEmail(email)) {
-      errors.push('Invalid email address.')
+      errors.push('Invalid email address.');
     }
 
     if (!isNotEmpty(password) || !hasMinLength(password, 6)) {
-      errors.push('You must provide a password with at least 6 charecters.')
+      errors.push('You must provide a password with at least 6 charecters.');
     }
 
     if (!isEqualToOtherValue(password, confirmPassword)) {
@@ -43,14 +49,15 @@ export default function Signup() {
     }
 
     if (errors.length > 0) {
-      return {errors: errors};
+      return { errors: errors };
     }
 
-    return {errors: null}
-
+    return { errors: null };
   }
 
-  const [formState, formAction, pending ] = useActionState(signupAction,{errors: null});
+  const [formState, formAction, pending] = useActionState(signupAction, {
+    errors: null,
+  });
 
   return (
     <form action={formAction}>
@@ -137,6 +144,14 @@ export default function Signup() {
           agree to the terms and conditions
         </label>
       </div>
+
+      {formState.errors && (
+        <ul className="errors">
+          {formState.errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      )}
 
       <p className="form-actions">
         <button type="reset" className="button button-flat">
