@@ -1,3 +1,5 @@
+import {isEmail, isNotEmpty, hasMinLength, isEqualToOtherValue } from '../util/validation';
+
 export default function Signup() {
   function signupAction(formData) {
     const email = formData.get('email');
@@ -9,7 +11,9 @@ export default function Signup() {
     const terms = formData.get('terms');
     const acquisitionChannel = formData.getAll('aquisition');
 
-    
+    let errors = [];
+
+    if()
   }
   return (
     <form action={signupAction}>
