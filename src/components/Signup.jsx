@@ -5,10 +5,10 @@ import {
   hasMinLength,
   isEqualToOtherValue,
 } from '../util/validation';
-import { Link } from 'react-router-dom';
+
 
 export default function Signup() {
-  function signupAction(formData) {
+  function signupAction(prevFormState,formData) {
     const email = formData.get('email');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirm-password');
