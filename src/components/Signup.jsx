@@ -1,4 +1,5 @@
-import {isEmail, isNotEmpty, hasMinLength, isEqualToOtherValue } from '../util/validation';
+import { useActionState } from 'react'; 
+import { isEmail, isNotEmpty, hasMinLength, isEqualToOtherValue } from '../util/validation';
 
 export default function Signup() {
   function signupAction(formData) {
@@ -40,6 +41,12 @@ export default function Signup() {
     if (acquisitionChannel.length === 0) {
       errors.push('Please select at least one aquisition channel.');
     }
+
+    if (errors.length > 0) {
+      return {errors: errors};
+    }
+
+    return {errors: null}
 
   }
   return (
