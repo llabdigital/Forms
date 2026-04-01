@@ -6,9 +6,8 @@ import {
   isEqualToOtherValue,
 } from '../util/validation';
 
-
 export default function Signup() {
-  function signupAction(prevFormState,formData) {
+  function signupAction(prevFormState, formData) {
     const email = formData.get('email');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirm-password');
@@ -25,7 +24,7 @@ export default function Signup() {
     }
 
     if (!isNotEmpty(password) || !hasMinLength(password, 6)) {
-      errors.push('You must provide a password with at least 6 charecters.');
+      errors.push('You must provide a password with at least 6 characters.');
     }
 
     if (!isEqualToOtherValue(password, confirmPassword)) {
