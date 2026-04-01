@@ -49,8 +49,11 @@ export default function Signup() {
     return {errors: null}
 
   }
+
+  const [formState, formAction, pending ] = useActionState(signupAction,{errors: null});
+
   return (
-    <form action={signupAction}>
+    <form action={formAction}>
       <h2>Welcome on board!</h2>
       <p>We just need a little bit of data from you to get you started 🚀</p>
 
