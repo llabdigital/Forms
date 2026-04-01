@@ -1,7 +1,15 @@
 export default function Signup() {
   function signupAction(formData) {
-    const enteredEmail = formData.get('email');
-    console.log(enteredEmail);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirm-password');
+    const firstName = formData.get('first-name');
+    const lastName = formData.get('last-name');
+    const role = formData.get('role');
+    const terms = formData.get('terms');
+    const acquisitionChannel = formData.getAll('aquisition');
+
+    
   }
   return (
     <form action={signupAction}>
